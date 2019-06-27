@@ -15,8 +15,46 @@ var HotelSchema = new mongoose_1.Schema({
             autopopulate: { select: '-_id -createdAt -updatedAt' },
         }
     ],
+    opening_days: {
+        type: String,
+        enum: [
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
+            'Sunday'
+        ],
+        default: 'Monday'
+    },
     opening_hours: {
         type: String,
+        enum: [
+            '00 h',
+            '02 h',
+            '03 h',
+            '04 h',
+            '05 h',
+            '06 h',
+            '07 h',
+            '08 h',
+            '09 h',
+            '10 h',
+            '11 h',
+            '12 h',
+            '13 h',
+            '14 h',
+            '15 h',
+            '16 h',
+            '17 h',
+            '18 h',
+            '19 h',
+            '20 h',
+            '21 h',
+            '22 h',
+            '23 h'
+        ]
     },
     address: {
         type: String,
