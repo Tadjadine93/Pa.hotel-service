@@ -15,9 +15,46 @@ const HotelSchema = new Schema({
         ref: 'StarRatings',
         autopopulate: { select: '-_id -createdAt -updatedAt' },
     }
-  ],
+    ],
+    opening_days: {
+        type: String,
+        enum: [
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
+            'Sunday'
+        ]
+    },
     opening_hours: {
         type: String, // à revoir le type
+        enum: [
+            '00 h',
+            '02 h',
+            '03 h',
+            '04 h',
+            '05 h',
+            '06 h',
+            '07 h',
+            '08 h',
+            '09 h',
+            '10 h',
+            '11 h',
+            '12 h',
+            '13 h',
+            '14 h',
+            '15 h',
+            '16 h',
+            '17 h',
+            '18 h',
+            '19 h',
+            '20 h',
+            '21 h',
+            '22 h',
+            '23 h'
+        ]
     },
     address: {
         type: String,
@@ -47,8 +84,8 @@ const HotelSchema = new Schema({
         ref: 'Room',
         autopopulate: { select: '-_id -createdAt -updatedAt' },
     }
-  ],
-  localization: {
+    ],
+    localization: {
         type: [Number],
         index: '2d',
         required: true,
@@ -60,9 +97,9 @@ const HotelSchema = new Schema({
         type: Number
     } */
 },
-                               {
+    {
         timestamps: true
-});
+    });
 
 // tslint:disable-next-line: no-var-requires
 HotelSchema.plugin(require('mongoose-autopopulate'));
