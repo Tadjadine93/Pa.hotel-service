@@ -26,7 +26,8 @@ const HotelSchema = new Schema({
             'Friday',
             'Saturday',
             'Sunday'
-        ]
+        ],
+        default: 'Monday'
     },
     opening_hours: {
         type: String, // à revoir le type
@@ -97,7 +98,7 @@ const HotelSchema = new Schema({
         type: Number
     } */
 },
-    {
+                               {
         timestamps: true
     });
 
