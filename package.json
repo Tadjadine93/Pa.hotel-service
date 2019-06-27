@@ -48,5 +48,13 @@
     "API",
     "REST",
     "Pa.hotels"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tadjadine93/Pa.hotel-service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Tadjadine93/Pa.hotel-service/issues"
+  },
+  "homepage": "https://github.com/Tadjadine93/Pa.hotel-service#readme"
 }
