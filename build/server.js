@@ -32,7 +32,7 @@ var Server = (function () {
     }
     Server.prototype.config = function () {
         var MONGO_URI = 'mongodb://localhost:27017/pa-hotels-service';
-        mongoose.connect(MONGO_URI || process.env.MONGODB_URI, { useNewUrlParser: true });
+        mongoose.connect(MONGO_URI || process.env.MONGODB_URI, { useCreateIndex: true, useNewUrlParser: true });
         this.app.use(bodyParser.urlencoded({ extended: true }));
         this.app.use(bodyParser.json());
         this.app.use(cookieParser());

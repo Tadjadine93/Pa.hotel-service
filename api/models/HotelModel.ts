@@ -1,4 +1,5 @@
 import { model, Schema } from 'mongoose';
+const enumValues = require('mongoose-enumvalues');
 
 // Create a schema
 const HotelSchema = new Schema({
@@ -73,6 +74,24 @@ const HotelSchema = new Schema({
         required: true,
         unique: true,
     },
+    /* phone: {
+        type: String,
+        validate: {
+          isAsync: true,
+          validator: function(v, cb) {
+            setTimeout(function() {
+              var phoneRegex = /\d{3}-\d{3}-\d{4}/; // rechercher un phoneRegex qui correspond pour tous les pays ????
+              var msg = v + ' is not a valid phone number!';
+              // First argument is a boolean, whether validator succeeded
+              // 2nd argument is an optional error message override
+              cb(phoneRegex.test(v), msg);
+            }, 5);
+          },
+          // Default error message, overridden by 2nd argument to `cb()` above
+          message: 'Default error message'
+        }, 
+        required: [true, 'User phone number required']
+      },*/
     photo: {
         type: String,
     },
@@ -98,9 +117,14 @@ const HotelSchema = new Schema({
         type: Number
     } */
 },
-                               {
+    {
         timestamps: true
     });
+
+// specifics for each method below
+const enumOptions = {};
+
+HotelSchema.plugin(enumValues, enumOptions);
 
 // tslint:disable-next-line: no-var-requires
 HotelSchema.plugin(require('mongoose-autopopulate'));

@@ -16,11 +16,10 @@ var GuestsSchema = new mongoose_1.Schema({
         required: true,
         default: '',
     },
-    lat: {
-        type: Number,
-    },
-    lon: {
-        type: Number,
+    localization: {
+        type: [Number],
+        index: '2d',
+        required: true,
     }
 }, {
     timestamps: true

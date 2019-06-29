@@ -5,12 +5,10 @@ const BookingsSchema = new Schema({
     date_from: {
         type: Date, // à revoir le type
         default: Date.now
-
     },
     date_to: {
         type: Date, // à revoir le type
         default: Date.now
-
     }
 },
                                   {

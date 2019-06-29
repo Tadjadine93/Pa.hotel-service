@@ -16,6 +16,12 @@ const GuestsSchema = new Schema({
         required: true,
         default: '',
     },
+    localization: {
+        type: [Number],
+        index: '2d',
+        required: true,
+    }
+    /* ,
     lat: {
         type: Number,
         // required: true,
@@ -25,7 +31,7 @@ const GuestsSchema = new Schema({
         type: Number,
         // required: true,
         // default: '',
-    }
+    } */
 },
                                 {
         timestamps: true

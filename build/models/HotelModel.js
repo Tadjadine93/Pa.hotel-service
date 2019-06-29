@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = require("mongoose");
+var enumValues = require('mongoose-enumvalues');
 var HotelSchema = new mongoose_1.Schema({
     name: {
         type: String,
@@ -93,5 +94,7 @@ var HotelSchema = new mongoose_1.Schema({
 }, {
     timestamps: true
 });
+var enumOptions = {};
+HotelSchema.plugin(enumValues, enumOptions);
 HotelSchema.plugin(require('mongoose-autopopulate'));
 exports.Hotel = mongoose_1.model('Hotel', HotelSchema);

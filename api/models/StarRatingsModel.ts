@@ -1,4 +1,5 @@
 import { model, Schema } from 'mongoose';
+const enumValues = require('mongoose-enumvalues');
 
 /* const Stars = Object.freeze({
     1: '1',
@@ -11,13 +12,14 @@ import { model, Schema } from 'mongoose';
 // Create a schema
 const StarRatingsSchema = new Schema({
     star_rating_code: {
-        type: Number,
+        type: String,
         // enum: Object.values(Stars),
         enum: [
-            1, 2, 3, 4, 5
+            '1', '2', '3', '4', '5'
         ],
         required: true,
         unique: true,
+        default: '1',
     }
     /* star_rating_image: {
         type: String,
@@ -30,5 +32,11 @@ const StarRatingsSchema = new Schema({
 /* Object.assign(StarRatingsSchema.statics, {
     Stars,
 }); */
+
+// specifics for each method below
+const enumOptions = {};
+
+StarRatingsSchema.plugin(enumValues, enumOptions);
+
 // Create a model and Exports the model
 export let StarRatings = model('StarRatings', StarRatingsSchema);

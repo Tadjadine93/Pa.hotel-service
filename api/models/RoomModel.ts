@@ -30,12 +30,12 @@ const RoomSchema = new Schema({
     cost_per_night: {
         type: Number
     },
-    reserved: [
+    /* reserved: [
         {
             from: String,
             to: String
         }
-    ]
+    ] */
 },
                               {
         timestamps: true

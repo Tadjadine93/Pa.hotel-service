@@ -30,12 +30,6 @@ var RoomSchema = new mongoose_1.Schema({
     cost_per_night: {
         type: Number
     },
-    reserved: [
-        {
-            from: String,
-            to: String
-        }
-    ]
 }, {
     timestamps: true
 });

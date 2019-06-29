@@ -1,11 +1,5 @@
-// import * as mongoose from 'mongoose';
 import { model, Schema } from 'mongoose';
-
-/* const ServiceHotel = Object.freeze({
-    Wi-fi: 'Free and unlimited Wi-fi',
-    Fax: 'Fax sending / receiving',
-    Television: 'Satellite television',
-}); */
+const enumValues = require('mongoose-enumvalues');
 
 // Create a schema
 const ServiceSchema = new Schema({
@@ -13,21 +7,22 @@ const ServiceSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        // enum: Object.values(ServiceHotel),
         enum: [
             'Free and unlimited Wi-fi',
             'Fax sending / receiving',
             'Satellite television'
-        ]
+        ],
+        default: 'Free and unlimited Wi-fi',
     }
 },
                                  {
         timestamps: true
 });
 
-/* Object.assign(ServiceSchema.statics, {
-    ServiceHotel,
-}); */
+// specifics for each method below
+const enumOptions = {};
+
+ServiceSchema.plugin(enumValues, enumOptions);
 
 // Create a model and Exports the model
 export let Service = model('Service', ServiceSchema);
